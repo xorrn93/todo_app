@@ -14,6 +14,8 @@
 <body>
     <div class="wrap">
         <h1 class="title">todolist</h1>
+        
+        <input type="button" value="화이트모드" id="theme" onclick="changeTheme(this)">
 
         <ul id="itemList">
             <button type="button" onclick="delteAll()">전체삭제</button>
@@ -106,7 +108,25 @@
             }
         })
         
-          
+        function changeTheme(self) {
+        const body = document.querySelector("body"); 
+        const themeBtn = document.getElementById("theme");
+        if(self.value === '다크모드'){
+            body.style.background = "white";
+            body.style.color = "black";
+            themeBtn.style.background ='white';
+            themeBtn.style.color = 'black';
+            self.value = "화이트모드";
+        }
+        else{
+            body.style.background = "black";
+            body.style.color = "white";
+            themeBtn.style.background ='black';
+            themeBtn.style.color = 'white';
+            self.value = "다크모드";
+        }
+        }
+
             </script>
 </body>
 </html>
