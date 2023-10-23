@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todoApp
+    </title>
+    <style>
+        *{ border: 1px solid black;}
+        .title{ text-align: center;}
+        .name_checked{ text-decoration: line-through;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1 class="title">todolist</h1>
+
+        <ul id="itemList">
+            <button type="button" onclick="delteAll()">전체삭제</button>
+            <li>
+                <input type="checkbox">
+                <span>name</span>
+                <button type="button">delete</button>
+            </li>
+            <li>
+                <input type="checkbox">
+                <span>name</span>
+                <button type="button">delete</button>
+            </li>
+            
+        </ul>
+
+        <div class="bar">
+           
+                <input type="text" id="addValue" placeholder="add to do">
+                <button type="button" onclick="addList()">+</button>
+                <input type="text" placeholder="add tag" name="" id="addTag">
+            
+        </div>
+     </div>
+</body>
+</html>
