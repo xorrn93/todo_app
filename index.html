@@ -38,5 +38,75 @@
             
         </div>
      </div>
+
+     <script>
+  
+        const input = document.querySelector("#addValue");
+        const addTag = document.querySelector("#addTag");
+        
+        function warring (){alert("Warring : empty value!")};
+        
+        function addList()  {
+          const addValue = document.querySelector('#addValue').value;
+          const tagValue = addTag.value;
+          const itemList = document.getElementById("itemList");
+          const li = document.createElement("li");
+          const checkbox = document.createElement("input");
+          const span = document.createElement("span"); 
+          const tag = document.createElement("span");
+          const button = document.createElement("button");
+          const textNode = document.createTextNode(addValue);
+        
+          if(addValue == ""){
+            warring();
+          }else{
+            // li.setAttribute('id',addValue);
+            span.textContent = addValue;
+            tag.textContent = tagValue;
+            checkbox.type = 'checkbox';
+            button.innerText = 'delete';
+          
+             const addList  = document.getElementById('itemList')
+             .appendChild(li);
+        
+             addList.appendChild(checkbox);
+             addList.appendChild(span);
+             addList.appendChild(tag);
+             addList.appendChild(button);
+             
+            checkbox.addEventListener('change',(e)=>{
+                if(e.currentTarget.checked){
+                    span.style.textDecoration = "line-through";
+                }else {
+                    span.style.textDecoration = "none";
+                }
+        
+            })
+        
+            button.addEventListener('click',(e)=>{
+                itemList.removeChild(e.currentTarget.parentNode);
+            })
+        
+            input.value = "";
+            addTag.value = "";
+        
+            }
+        }
+        
+        input.addEventListener('keypress', (event)=>{
+            if(event.keyCode === 13){
+                addList();
+            }
+        
+        })
+        
+        addTag.addEventListener('keypress',(e)=>{
+            if(e.keyCode === 13){
+                addList();
+            }
+        })
+        
+          
+            </script>
 </body>
 </html>
