@@ -31,10 +31,12 @@
             </li>
             
         </ul>
-        <button type="button" id="toggle">
+        <button type="button" id="toggle" style="display: block; width: 100%;"
+            onclick="toggle()"
+        >
             +
         </button>
-        <div class="bar" style="background-color: red;">
+        <div class="bar" style="background-color: red; display: none;">
                 <input type="text" id="addValue" placeholder="add to do">
                 <input type="date" name="" id="">
                 <button type="button" onclick="addList()">추가</button>

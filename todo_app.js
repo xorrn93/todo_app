@@ -83,4 +83,15 @@ else{
    self.value = "다크모드";
 }
 }
+// toggle btn
+function toggle() {
+    const bar = document.querySelector(".bar");
+    const hidden = bar.style.display;
+    if(hidden == "none"){
+        bar.style.display = "block";
+    }else {
+        bar.style.display = "none";
+    }
+
+}
 
