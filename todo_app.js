@@ -84,14 +84,21 @@ else{
 }
 }
 // toggle btn
-function toggle() {
-    const bar = document.querySelector(".bar");
+const bar = document.querySelector(".bar");
+function toggle(self) {
     const hidden = bar.style.display;
     if(hidden == "none"){
         bar.style.display = "block";
+        self.style.display = "none";
     }else {
         bar.style.display = "none";
     }
-
 }
+// exit btn
+const exitBtn = document.querySelector("#exitBtn");
+const toggleBtn = document.querySelector("#toggle");
+exitBtn.addEventListener('click', function(){
+    bar.style.display = "none";
+    toggleBtn.style.display = "block";
+})
 
