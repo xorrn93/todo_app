@@ -77,6 +77,11 @@ button.addEventListener('click',(e)=>{
 
 }
 
+// 기본 설명 todo 삭제
+function delDefault (self) {
+    self.parentNode.remove();
+}
+
 // enter 키로 추가
 input.addEventListener('keypress', (event)=>{
    if(event.keyCode === 13){
