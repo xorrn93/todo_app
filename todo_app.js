@@ -60,12 +60,14 @@ function addList()  {
    // todo 완료 시 밑줄
 checkbox.addEventListener('change',(e)=>{
     if(e.currentTarget.checked){
-        span.setAttribute('class',checked);
+        span.setAttribute('class','checked');
         span.style.textDecoration = "line-through";
     }else {
+        span.setAttribute('class','');
         span.style.textDecoration = "none";
     }
-
+    
+    gage();
 })
 
 // todo 삭제
@@ -135,4 +137,9 @@ exitBtn.addEventListener('click', function(){
     toggleBtn.style.display = "block";
     input.value = "";
 })
-
+// 완료 개수
+function gage(){
+    const gage = document.getElementById('gage');
+    let checkedes = document.getElementsByClassName('checked').length;
+    gage.innerText = `sucess : ${checkedes}`; 
+}
