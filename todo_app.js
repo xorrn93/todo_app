@@ -60,6 +60,7 @@ function addList()  {
    // todo 완료 시 밑줄
 checkbox.addEventListener('change',(e)=>{
     if(e.currentTarget.checked){
+        span.setAttribute('class',checked);
         span.style.textDecoration = "line-through";
     }else {
         span.style.textDecoration = "none";
@@ -83,7 +84,16 @@ input.addEventListener('keypress', (event)=>{
 })
 
 // 전체 삭제
-
+function deleteAll() {
+    if(confirm('정말 삭제 하시겠습니까?')){
+        if(itemList.innerHTML != ''){
+            const itemList = document.getElementById("itemList");
+            itemList.innerHTML = '';
+        }else{
+            warring('삭제할 목록이 없습니다.');
+        }
+    }
+}
 
 // 테마 변환 기능
 function changeTheme(self) {
