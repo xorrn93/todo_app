@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todoApp
     </title>
-    <style>
-        *{ border: 1px solid black;}
-        .title{ text-align: center;}
-        .name_checked{ text-decoration: line-through;}
-    </style>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     <div class="wrap">
         <h1 class="title">Gage</h1>
-        <span id="gage">sucess :0</span>
+        <span id="gage">sucess : 0</span>
         <input type="button" value="화이트모드" id="theme" onclick="changeTheme(this)">
         <button type="button" onclick="deleteAll()">전체삭제</button>
         <ul id="itemList">
             <li>
                 <input type="checkbox">
-                <span>name</span>
+                <span>SQLD 자격증</span>
                 <span>DAY-</span>
-                <span>0</span >
+                <span>30</span >
                 <button type="button" onclick="delDefault(this)">delete</button>
             </li>
             <li>
                 <input type="checkbox">
-                <span>name</span>
-                <span>DAY-</span>
-                <span>0</span>
+                <span>M사 2차 면접</span>
+                <span>Today</span>
+                <button type="button" onclick="delDefault(this)">delete</button>
+            </li>
+            <li>
+                <input type="checkbox" checked >
+                <span style="text-decoration: line-through;">M사 1차 면접</span>
                 <button type="button" onclick="delDefault(this)">delete</button>
             </li>
             
@@ -53,6 +53,6 @@
                 </button>
         </div>
      </div>
-     <script src="todo_app.js"></script>
+     <script src="main.js"></script>
 </body>
 </html>
