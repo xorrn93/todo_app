@@ -14,7 +14,7 @@
             <span id="gage">sucess : 0</span>
             <input type="button" value="화이트모드" id="theme" onclick="changeTheme(this)">
         </div>
-        <p class="intro">Gage 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
+        <p class="intro" onclick="delIntro(this)">Gage 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
         <ul id="itemList">
             <li>
                 <input type="checkbox">
@@ -33,21 +33,23 @@
                     <span style="text-decoration: line-through;">M사 1차 면접</span>
                     <button type="button" onclick="delDefault(this)">x</button>
                 </li>
-                <button type="button" onclick="deleteAll()" class="deleteAll">All delete</button>
             </ul>
+            <button type="button" onclick="deleteAll()" class="deleteAll">All delete</button>
         <button type="button" id="toggle" style="display: block; width: 100%;"
             onclick="toggle(this)"
         >
             + ADD
         </button>
-        <div class="bar" style="background-color: red; display: none;">
-                <input type="text" id="addValue" placeholder="add to do">
-                <input type="date" name="" id="dateValue">
-                <button type="button" onclick="addList()">추가</button>
-                <!-- <input type="text" placeholder="add tag" name="" id="addTag"> -->
-                <button type="button" id="exitBtn" style="width: 100%;"> 
-                    x
-                </button>
+        <div class="bar" style="display: none;">
+                <input type="text" id="addValue" placeholder="enter anyting" >
+                <div class="tool">
+                    <input type="date" id="dateValue">
+                    <button type="button" id="addList" onclick="addList()">+</button>
+                    <button type="button" id="exitBtn" style="width: 100%;"> 
+                    ESC
+                    </button>
+                </div>
+                
         </div>
      </div>
      <script src="main.js"></script>

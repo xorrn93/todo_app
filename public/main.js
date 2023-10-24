@@ -3,6 +3,10 @@ const input = document.querySelector("#addValue");
 // 경고 메세지
 function warring (msg){alert(`오류 : ${msg}`)};
 
+// inrto 삭제
+function delIntro(self){
+    self.remove();
+}
 //   todo 추가
 function addList()  {
  const addValue = document.querySelector('#addValue').value;
@@ -18,7 +22,7 @@ function addList()  {
 // 속성 편집
  checkbox.type = 'checkbox';
  span.textContent = addValue;
- button.innerText = 'delete';
+ button.innerText = 'x';
 
  // D-day 계산
  let today = new Date();
@@ -74,7 +78,6 @@ checkbox.addEventListener('change',(e)=>{
 button.addEventListener('click',(e)=>{
     itemList.removeChild(e.currentTarget.parentNode);
 })
-
 }
 
 // 기본 설명 todo 삭제
@@ -93,9 +96,9 @@ input.addEventListener('keypress', (event)=>{
 // 전체 삭제
 function deleteAll() {
     if(confirm('정말 삭제 하시겠습니까?')){
-        if(itemList.innerHTML != ''){
+        if(itemList.innerText != ''){
             const itemList = document.getElementById("itemList");
-            itemList.innerHTML = '';
+            itemList.innerText = '';
         }else{
             warring('삭제할 목록이 없습니다.');
         }
@@ -128,7 +131,7 @@ const bar = document.querySelector(".bar");
 function toggle(self) {
     const hidden = bar.style.display;
     if(hidden == "none"){
-        bar.style.display = "block";
+        bar.style.display = "flex";
         self.style.display = "none";
     }else {
         bar.style.display = "none";
