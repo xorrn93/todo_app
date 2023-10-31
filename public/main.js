@@ -119,19 +119,19 @@ function deleteAll() {
 function changeTheme(self) {
 const body = document.querySelector("body"); 
 const themeBtn = document.getElementById("theme");
-if(self.value === '다크모드'){
+if(self.value === 'Dark'){
    body.style.background = "white";
    body.style.color = "black";
-   themeBtn.style.background ='white';
    themeBtn.style.color = 'black';
-   self.value = "화이트모드";
+   self.value = "White";
+   self.innerText = "bedtime";
 }
 else{
    body.style.background = "black";
    body.style.color = "white";
-   themeBtn.style.background ='black';
    themeBtn.style.color = 'white';
-   self.value = "다크모드";
+   self.value = "Dark";
+   self.innerText = "partly_cloudy_day"
 }
 }
 
