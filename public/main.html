@@ -11,24 +11,24 @@
     <div class="wrap">
         <div class="header">
             <h1 class="title">Gage</h1>
-            <span class="gage">sucess : 0</span>
+            <span class="sucess">sucess : 0</span>
             <input type="button" value="화이트모드" id="theme" onclick="changeTheme(this)">
         </div>
         <p class="intro" onclick="delIntro(this)">Gage 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
         <ul id="itemList" class="itemList">
-            <li class="item headline">
+            <li class="item headline fadein">
                 <input type="checkbox">
                 <span>SQLD 자격증</span>
                 <span>DAY-30</span>
                     <button type="button" onclick="delDefault(this)">x</button>
                 </li>
-                <li class="item headline">
+                <li class="item headline fadein">
                     <input type="checkbox">
                     <span>M사 2차 면접</span>
                     <span>Today</span>
                     <button type="button" onclick="delDefault(this)">x</button>
                 </li>
-                <li class="item headline">
+                <li class="item headline fadein">
                     <input type="checkbox" checked >
                     <span style="text-decoration: line-through;">M사 1차 면접</span>
                     <button type="button" onclick="delDefault(this)">x</button>
@@ -40,7 +40,7 @@
             + ADD
         </button>
         <div class="input_bar fadein border">
-                <input type="text" id="addValue" class="addValue transpar" placeholder="enter anyting" >
+                <input type="text" id="addValue" class="addValue transpar" placeholder="Enter Anyting..." >
                 <div class="tool">
                     <input type="date" id="dateValue" class="date">
                     <button type="button" id="addList" class="btn plus border" onclick="addList()">+</button>

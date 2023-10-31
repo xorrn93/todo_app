@@ -20,7 +20,7 @@ function addList()  {
  const checkbox = document.createElement("input");
  const button = document.createElement("button");
 // 속성 편집
- li.setAttribute('class','item headline');
+ li.setAttribute('class','item headline fadein');
  checkbox.type = 'checkbox';
  span.textContent = addValue;
  button.innerText = 'x';
@@ -72,8 +72,17 @@ checkbox.addEventListener('change',(e)=>{
         span.style.textDecoration = "none";
     }
     
-    gage();
+    sucess();
 })
+
+// 완료 개수
+function sucess(){
+    const sucess = document.querySelector('.sucess');
+    let checkedes = document.getElementsByClassName('checked').length;
+
+    console.log(checkedes);
+    sucess.innerText = `sucess : ${checkedes}`; 
+}
 
 // todo 삭제
 button.addEventListener('click',(e)=>{
@@ -146,9 +155,3 @@ exitBtn.addEventListener('click', function(){
     toggleBtn.style.display = "block";
     input.value = "";
 })
-// 완료 개수
-function gage(){
-    const gage = document.getElementById('gage');
-    let checkedes = document.getElementsByClassName('checked').length;
-    gage.innerText = `sucess : ${checkedes}`; 
-}

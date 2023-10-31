@@ -1,3 +1,5 @@
+
+/* default CSS */
 :root{
  --bg-color : #262626;
  --font-color : #fff;
@@ -18,7 +20,7 @@ body {
 div {
     box-sizing: border-box;
 }
-
+/* elements */
 .wrap {
     position: relative;
     height: 100vh;
@@ -42,7 +44,7 @@ div {
     width: 70%;
     padding-left: 10px;
 }
-.gage {
+.sucess {
     min-width: 80px;
     margin: auto;
     font-weight: bold;
@@ -57,15 +59,9 @@ div {
 .itemList > .item {
     width: 100%;
     height: 50px;
-    line-height: 50px;
     display: flex;
+    line-height: 3em;
     justify-content: space-between;
-    animation: fadein 3s ease 1s;
-    -webkit-animation: fadein 1s; /* Safari and Chrome */
-}
-
-.headline {
-    border-bottom: 1px solid #fff;
 }
 .item > input[type="checkbox"] {
     width: 30px;
@@ -101,13 +97,76 @@ div {
     cursor: pointer;
 }
 
-.name_checked{ text-decoration: line-through;}
-
 .toggle {
     width: 100%;
     color:#fff;
     font-size: 30px;
 }
+
+.input_bar {
+    top: 100%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    position: sticky;
+    display: none;
+}
+
+.input_bar .addValue {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    height: 100px;
+    color: #fff;
+    font-size: 20px;
+    outline: none;
+}
+
+.tool {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tool .date {
+    flex-basis: 40%;
+    background : #fff;
+    color: #000;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+.tool .plus {
+    flex-basis: calc(40% - 1em);
+    border-radius: 4px;
+    margin-left: auto;
+    color: #fff;
+    font-size: 40px;
+}
+
+.tool .exit {
+    flex-basis: calc(20%);
+    margin-left: auto;
+    background:var(--red);
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.exit:hover {
+    background: none;
+    color: var(--red);
+    transition-duration: 0.333s;
+}
+
+/* option CSS */
+.btn {
+    cursor: pointer;
+}
+
 
 .transpar {
     background: none;
@@ -142,68 +201,8 @@ div {
     }
 }
 
+.name_checked{ text-decoration: line-through;}
 
-.btn {
-    cursor: pointer;
-}
-
-.input_bar {
-    top: 100%;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 10px;
-    position: sticky;
-}
-
-.input_bar .addValue {
-    display: block;
-    padding: 10px;
-    width: 100%;
-    height: 100px;
-    color: #fff;
-    font-size: 20px;
-    outline: none;
-}
-
-.tool {
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-}
-.tool > * {
-    line-height: 1.333;
-}
-
-.tool .date {
-    flex-basis: 40%;
-    background : #fff;
-    color: #000;
-    border-radius: 3px;
-    border: none;
-    outline: none;
-    padding: 10px;
-}
-.tool .plus {
-    flex-basis: 40%;
-    margin-left: 7px;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 40px;
-}
-
-.tool .exit {
-    flex-basis: 20%;
-    margin-left: 7px;
-    background:var(--red);
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-}
-
-.exit:hover {
-    background: none;
-    color: var(--red);
-    transition-duration: 0.333s;
+.headline {
+    border-bottom: 1px solid #fff;
 }
