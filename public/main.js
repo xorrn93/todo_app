@@ -20,6 +20,7 @@ function addList()  {
  const checkbox = document.createElement("input");
  const button = document.createElement("button");
 // 속성 편집
+ li.setAttribute('class','item headline');
  checkbox.type = 'checkbox';
  span.textContent = addValue;
  button.innerText = 'x';
@@ -126,20 +127,20 @@ else{
 }
 
 // toggle btn
-const bar = document.querySelector(".bar");
+const bar = document.querySelector(".input_bar");
 
 function toggle(self) {
     const hidden = bar.style.display;
     if(hidden == "none"){
-        bar.style.display = "flex";
+        bar.style.display = "block";
         self.style.display = "none";
     }else {
         bar.style.display = "none";
     }
 }
 // exit btn
-const exitBtn = document.querySelector("#exitBtn");
-const toggleBtn = document.querySelector("#toggle");
+const exitBtn = document.getElementById("exitBtn");
+const toggleBtn = document.getElementById("toggle");
 exitBtn.addEventListener('click', function(){
     bar.style.display = "none";
     toggleBtn.style.display = "block";
