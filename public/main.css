@@ -33,6 +33,7 @@ div {
     position: relative;
     height: 100vh;
 }
+
 /* header */
 .header {
     height: 50px;
@@ -126,7 +127,7 @@ div {
     padding: 10px;
     border-radius: 10px;
     position: sticky;
-    display: none;
+    /* display: none; */
 }
 
 .input_bar .addValue {
@@ -223,3 +224,4 @@ div {
 .headline {
     border-bottom: 1px solid #fff;
 }
+

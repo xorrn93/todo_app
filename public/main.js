@@ -8,11 +8,32 @@ function delIntro(self){
     self.remove();
 }
 //   todo 추가
-function addList()  {
- const addValue = document.querySelector('#addValue').value;
- let dateValue = document.querySelector('#dateValue').value;
+function addList(){
+ const addValue = document.getElementById('addValue').value;
+ let dateValue = document.getElementById('dateValue').value;
  const itemList = document.getElementById("itemList");
- 
+
+  // D-day 계산
+  let today = new Date();
+  let d_day = new Date(dateValue);
+  let timeGap = d_day.getTime() - today.getTime();
+  let remainTime = Math.ceil(timeGap/(1000*60*60*24));
+  
+ const user = {
+    title : addValue,
+    date : remainTime,
+ }
+
+ console.log(user);
+
+fetch('/add', {
+method: 'POST',
+headers: {
+  'Content-Type': 'application/json;charset=utf-8'
+},
+body: JSON.stringify(user)
+});
+
  // dom 생성
  const li = document.createElement("li");
  const span = document.createElement("span"); 
@@ -21,16 +42,12 @@ function addList()  {
  const button = document.createElement("button");
 // 속성 편집
  li.setAttribute('class','item headline fadein');
+ li.setAttribute('id',addValue);
  checkbox.type = 'checkbox';
  span.textContent = addValue;
  button.innerText = 'x';
 
- // D-day 계산
- let today = new Date();
- let d_day = new Date(dateValue);
- let timeGap = d_day.getTime() - today.getTime();
- let remainTime = Math.ceil(timeGap/(1000*60*60*24));
- 
+
  // 빈칸 입력시
  if(addValue == ""){
    warring('빈칸 을 입력하셨습니다.');

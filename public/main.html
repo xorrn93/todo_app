@@ -11,9 +11,9 @@
 <body>
     <div class="wrap">
         <div class="header">
-            <h1 class="title">Gage</h1>
+            <h1 class="title eng">Todo_day</h1>
             <span class="sucess">sucess : 0</span>
-            <button id="theme" value="Dark" class="btn theme transpar material-symbols-outlined" onclick="changeTheme(this)">bedtime</button>
+            <button id="theme" value="Dark" class="btn theme transpar material-symbols-outlined" onclick="changeTheme(this)">partly_cloudy_day</button>
         </div>
         <p class="intro" onclick="delIntro(this)">Gage 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
         <ul id="itemList" class="itemList">
@@ -41,14 +41,16 @@
             + ADD
         </button>
         <div class="input_bar fadein border">
-                <input type="text" id="addValue" class="addValue transpar" placeholder="Enter Anyting..." >
+            <!-- <form class="input_bar fadein border"> -->
+                <input type="text" id="addValue" class="addValue transpar" placeholder="Enter Anyting..." name="name">
                 <div class="tool">
-                    <input type="date" id="dateValue" class="date">
-                    <button type="button" id="addList" class="btn plus border" onclick="addList()">+</button>
-                    <button type="button" id="exitBtn" class="btn exit" style="width: 100%;"> 
-                    ESC
-                    </button>
+                        <input type="date" id="dateValue" class="date">
+                        <button type="button" id="addList" class="btn plus border" onclick='addList()'>+</button>
+                        <button type="button" id="exitBtn" class="btn exit" style="width: 100%;"> 
+                            ESC
+                        </button>
                 </div>
+            <!-- </form> -->
                 
         </div>
      </div>
