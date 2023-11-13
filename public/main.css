@@ -122,12 +122,12 @@ div {
 }
 /* input todo bar */
 .input_bar {
+    display: none;
     top: 100%;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
     position: sticky;
-    /* display: none; */
 }
 
 .input_bar .addValue {
