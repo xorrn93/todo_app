@@ -19,7 +19,7 @@
         <ul id="itemList" class="itemList">
                 {% for user in users %}
                 <li class="item headline fadein" id="{{user._id}}">
-                    <input type="checkbox" name="" id="checkbox" value="{{user.checked}}" onclick="doneTodo(this)">
+                    <input type="checkbox" name="" class="{{user.checked}}" id="checkbox" value="{{user.checked}}" onclick="doneTodo(this)" onload="lineThrough(this)">
                     <span>{{user.name}}</span>
                     {% if user.date === 0 %}
                     <span>today</span>

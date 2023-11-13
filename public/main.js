@@ -1,4 +1,13 @@
 const input = document.querySelector("#addValue");
+window.onload = function(){
+    const done = document.getElementsByClassName("off");
+    for(let i = 0; i < done.length; i++){
+        done[i].nextElementSibling.style.textDecoration = "line-through";
+        done[i].parentNode.style.opacity = "50%";
+        done[i].setAttribute('checked',true);
+    }
+    sucess();         
+}
 
 // 경고 메세지
 function warring (msg){alert(`오류 : ${msg}`)};
@@ -58,41 +67,55 @@ async function delTodo(self){
         console.error(err)
     }
 }
-
+// update
 async function doneTodo(self) {
     const title = self.nextElementSibling;
     const checked = self.getAttribute('value');
     const id = self.parentNode.getAttribute('id');
 
     console.log(id);
+    console.log(checked);
+
     if(checked === 'on'){
         title.setAttribute('class','checked');
-        self.setAttribute('value','off');
-        title.style.textDecoration = "line-through";
         try {
-            await axios.patch(`/users/${id},on`);
+            await axios.patch(`/users/${id}`,{
+                checked : "off",
+            });
         }
         catch(err){
             console.error(err);
         }
     }else {
         title.setAttribute('class','');
-        checkbox.setAttribute('value','on');
-        title.style.textDecoration = "none";
         try {
-            await axios.patch(`/users/${id},off`);
+            await axios.patch(`/users/${id}`,{
+                checked : "on",
+            });
         }
         catch(err){
             console.error(err);
         }
     }
-    sucess();      
+    sucess();
+    location.reload(true);
+}
+
+function lineTruogh(self){
+    const title = self.nextElementSibling;
+    const checked = self.getAttribute('value')
+    console.log(checked)
+    if(checked === "off"){
+        title.style.textDecoration = "line-thruogh";
+    }else {
+        title.style.textDecoration = "none";
+    }
 }
 
 // 완료 개수
 function sucess(){
     const sucess = document.querySelector('.sucess');
-    let checkedes = document.getElementsByClassName('checked').length;
+    let checkedes = document.getElementsByClassName('off').length;
 
     console.log(checkedes);
     sucess.innerText = `sucess : ${checkedes}`; 
