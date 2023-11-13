@@ -10,12 +10,12 @@
 </head>
 <body>
     <div class="wrap">
-        <div class="header">
+        <div class="header" id="header">
             <h1 class="title eng">Todo_day</h1>
             <span class="sucess">sucess : 0</span>
             <button id="theme" value="Dark" class="btn theme transpar material-symbols-outlined" onclick="changeTheme(this)">partly_cloudy_day</button>
         </div>
-        <p class="intro" onclick="delIntro(this)">Gage 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
+        <p class="intro" onclick="delIntro(this)">Todo_day 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
         <ul id="itemList" class="itemList">
                 {% for user in users %}
                 <li class="item headline fadein" id="{{user._id}}">

@@ -157,6 +157,7 @@ const input_bar = document.querySelector("#input_bar");
 const addList = document.querySelector("#addList");
 const dateValue = document.querySelector("#dateValue");
 const item = document.querySelectorAll(".item");
+const header = document.querySelector("#header");
 
 if(self.value === 'Dark'){
    body.style.background = "white";
@@ -169,10 +170,11 @@ if(self.value === 'Dark'){
    addList.style.color = "black";
    addList.style.border = "1px solid black";
    dateValue.style.border = "1px solid black";
-   console.log(item);
+   header.style.borderBottom = "1px solid black";
    for(i=0;i < item.length;i++){
     const btn = item[i].querySelector("button");
     btn.style.color = "black";
+    item[i].style.borderBottom = "1px solid black";
    }
 }
 else{ 
@@ -186,9 +188,11 @@ else{
    addList.style.color = "white";
    addList.style.border = "1px solid white";
    dateValue.style.border = "none";
+   header.style.borderBottom = "1px solid white";
    for(i=0;i < item.length;i++){
     const btn = item[i].querySelector("button");
     btn.style.color = "white";
+    item[i].style.borderBottom = "1px solid white";
    }
 
 }
