@@ -1,43 +1,31 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const path = require('path');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const nunjucks = require('nunjucks');
 var cors = require('cors');
+
+const connect = require('./schemas');
 
 app.use(express.static('public'))
 app.use(cors())
 
-
-app.get('/',(req, res) => {
-    res.sendFile(__dirname + "/public/main.html")
+app.set('view engine','html');
+nunjucks.configure('views',{
+    express : app,
+    watch: true,
 });
-
-app.get('/main',(req, res) => {
-    res.sendFile(__dirname + "/public/main.html")
-})
-
+connect();
+app.use(express.static(path.join(__dirname,'public')));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false}));
 
-// add 
-app.post('/add',(req, res) =>{
-    console.log(req.body);
-})
-// delete
-app.get('/delete',(req, res)=>{
-
-})
-// check
-app.get('/check',(req, res) =>{
-
-})
-
-// all delete
-app.get('/alldelete',(req, res) =>{
-    
-})
-
-
+app.use('/',indexRouter);
+app.use('/users',usersRouter);
 
 app.listen(port, ()=>{
-    console.log(`서버가 실행 됩니다. http://localhost:${port}`);
+    console.log(`서버가 실행 됩니다. http://localhost:${port}`); 
 })
+
