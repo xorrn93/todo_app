@@ -1,5 +1,5 @@
-
 const input = document.querySelector("#addValue");
+
 // 경고 메세지
 function warring (msg){alert(`오류 : ${msg}`)};
 
@@ -8,89 +8,86 @@ function delIntro(self){
     self.remove();
 }
 //   todo 추가
-function addList(){
- const addValue = document.getElementById('addValue').value;
- let dateValue = document.getElementById('dateValue').value;
- const itemList = document.getElementById("itemList");
+async function addTodo(){
+ const name = document.getElementById('addValue').value;
+ const date = document.getElementById('dateValue').value;
 
-  // D-day 계산
-  let today = new Date();
-  let d_day = new Date(dateValue);
-  let timeGap = d_day.getTime() - today.getTime();
-  let remainTime = Math.ceil(timeGap/(1000*60*60*24));
-  
- const user = {
-    title : addValue,
-    date : remainTime,
- }
+ let today = new Date();
+ let d_day = new Date(date);
+ let timeGap = d_day.getTime() - today.getTime();
+ let remainTime = Math.ceil(timeGap/(1000*60*60*24));
 
- console.log(user);
-
-fetch('/add', {
-method: 'POST',
-headers: {
-  'Content-Type': 'application/json;charset=utf-8'
-},
-body: JSON.stringify(user)
-});
-
- // dom 생성
- const li = document.createElement("li");
- const span = document.createElement("span"); 
- const day = document.createElement("span");
- const checkbox = document.createElement("input");
- const button = document.createElement("button");
-// 속성 편집
- li.setAttribute('class','item headline fadein');
- li.setAttribute('id',addValue);
- checkbox.type = 'checkbox';
- span.textContent = addValue;
- button.innerText = 'x';
-
-
+   // d-day 를 설정 하지 않을 시
+ if(date == ("" && undefined && NaN)){
+        warring('날짜를 설정해 주세요!');
+    }
  // 빈칸 입력시
- if(addValue == ""){
+ if(name == ""){
    warring('빈칸 을 입력하셨습니다.');
  }
- // 오늘 날짜로 d-day 를 설정시
- else if(remainTime == 0){
- const addList = itemList.appendChild(li);
-    day.textContent = 'Today';
-    addList.setAttribute('id',addValue);
-     addList.append(checkbox, span, day , button);
- }
  // 오늘 날짜보다 적은 날로 d-day 를 설정 시
- else if(remainTime < 0){
+ if(remainTime < 0){
     warring('D-day 는 오늘보다 적은날로 설정할 수 없습니다.');
- }
- // d-day 를 설정 하지 않을 시
- else if(dateValue == ("" && undefined && NaN)){
- const addList = itemList.appendChild(li);
-    addList.setAttribute('id',addValue);
-    addList.append(checkbox, span ,button);
- }
- // d-day 설정
- else{
- const addList = itemList.appendChild(li);
-   day.textContent = `Day-${remainTime}`;
-   addList.setAttribute('id',addValue);
-   addList.append(checkbox, span, day, button);
-   }
-
-   input.value = "";
-
-   // todo 완료 시 밑줄
-checkbox.addEventListener('change',(e)=>{
-    if(e.currentTarget.checked){
-        span.setAttribute('class','checked');
-        span.style.textDecoration = "line-through";
-    }else {
-        span.setAttribute('class','');
-        span.style.textDecoration = "none";
+ }else {
+    try{
+        await axios.post('/users',{ name , date });
+        // getUser();
+        console.log(name);
+        console.log(date);
+        location.reload(true);
+    }catch (err){
+        console.error(err);
     }
-    
-    sucess();
-})
+ }
+
+name = "";
+date = "";
+}
+// delete
+async function delTodo(self){
+    const id = self.parentNode.getAttribute('id');
+    console.log(id);
+    try {
+        if(confirm('삭제하시겠습니까?')){
+            await axios.delete(`/users/${id}`);
+            location.reload(true);
+        }else{
+            location.reload(true);
+        }
+    }catch(err){
+        console.error(err)
+    }
+}
+
+async function doneTodo(self) {
+    const title = self.nextElementSibling;
+    const checked = self.getAttribute('value');
+    const id = self.parentNode.getAttribute('id');
+
+    console.log(id);
+    if(checked === 'on'){
+        title.setAttribute('class','checked');
+        self.setAttribute('value','off');
+        title.style.textDecoration = "line-through";
+        try {
+            await axios.patch(`/users/${id},on`);
+        }
+        catch(err){
+            console.error(err);
+        }
+    }else {
+        title.setAttribute('class','');
+        checkbox.setAttribute('value','on');
+        title.style.textDecoration = "none";
+        try {
+            await axios.patch(`/users/${id},off`);
+        }
+        catch(err){
+            console.error(err);
+        }
+    }
+    sucess();      
+}
 
 // 완료 개수
 function sucess(){
@@ -101,12 +98,6 @@ function sucess(){
     sucess.innerText = `sucess : ${checkedes}`; 
 }
 
-// todo 삭제
-button.addEventListener('click',(e)=>{
-    itemList.removeChild(e.currentTarget.parentNode);
-})
-}
-
 // 기본 설명 todo 삭제
 function delDefault (self) {
     self.parentNode.remove();
@@ -115,9 +106,8 @@ function delDefault (self) {
 // enter 키로 추가
 input.addEventListener('keypress', (event)=>{
    if(event.keyCode === 13){
-       addList();
+       addTodo();
    }
-
 })
 
 // 전체 삭제
@@ -157,7 +147,7 @@ const bar = document.querySelector(".input_bar");
 
 function toggle(self) {
     const hidden = bar.style.display;
-    if(hidden == "none"){
+    if(hidden === "none"){
         bar.style.display = "block";
         self.style.display = "none";
     }else {
