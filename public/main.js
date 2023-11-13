@@ -1,11 +1,14 @@
 const input = document.querySelector("#addValue");
 window.onload = function(){
+    // winow onload 시 적용되는 함수
+    // 체크박스 checked value 에 따른 style 변경
     const done = document.getElementsByClassName("off");
     for(let i = 0; i < done.length; i++){
         done[i].nextElementSibling.style.textDecoration = "line-through";
         done[i].parentNode.style.opacity = "50%";
         done[i].setAttribute('checked',true);
     }
+    // done 한 todo list length 를 반영함
     sucess();         
 }
 
@@ -149,19 +152,45 @@ function deleteAll() {
 function changeTheme(self) {
 const body = document.querySelector("body"); 
 const themeBtn = document.getElementById("theme");
+const toggle = document.getElementById("toggle");
+const input_bar = document.querySelector("#input_bar");
+const addList = document.querySelector("#addList");
+const dateValue = document.querySelector("#dateValue");
+const item = document.querySelectorAll(".item");
+
 if(self.value === 'Dark'){
    body.style.background = "white";
    body.style.color = "black";
    themeBtn.style.color = 'black';
    self.value = "White";
    self.innerText = "bedtime";
+   toggle.style.color = "black";
+   input_bar.style.border = "1px solid black";
+   addList.style.color = "black";
+   addList.style.border = "1px solid black";
+   dateValue.style.border = "1px solid black";
+   console.log(item);
+   for(i=0;i < item.length;i++){
+    const btn = item[i].querySelector("button");
+    btn.style.color = "black";
+   }
 }
-else{
-   body.style.background = "black";
+else{ 
+   body.style.background = "#262626";
    body.style.color = "white";
    themeBtn.style.color = 'white';
    self.value = "Dark";
    self.innerText = "partly_cloudy_day"
+   toggle.style.color = "white";
+   input_bar.style.border = "1px solid white";
+   addList.style.color = "white";
+   addList.style.border = "1px solid white";
+   dateValue.style.border = "none";
+   for(i=0;i < item.length;i++){
+    const btn = item[i].querySelector("button");
+    btn.style.color = "white";
+   }
+
 }
 }
 

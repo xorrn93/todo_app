@@ -19,7 +19,7 @@
         <ul id="itemList" class="itemList">
                 {% for user in users %}
                 <li class="item headline fadein" id="{{user._id}}">
-                    <input type="checkbox" name="" class="{{user.checked}}" id="checkbox" value="{{user.checked}}" onclick="doneTodo(this)" onload="lineThrough(this)">
+                    <input type="checkbox" name="" class="{{user.checked}}" id="checkbox" value="{{user.checked}}" onclick="doneTodo(this)">
                     <span>{{user.name}}</span>
                     {% if user.date === 0 %}
                     <span>today</span>
@@ -35,7 +35,7 @@
         >
             + ADD
         </button>
-        <div class="input_bar fadein border" style="display: none;">
+        <div class="input_bar fadein border" id="input_bar" style="display: none;">
             <!-- <form class="input_bar fadein border"> -->
                 <input type="text" id="addValue" class="addValue transpar" placeholder="Enter Anyting..." name="name">
                 <div class="tool">
