@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/main.css">
 </head>
-<body>
+<body >
     <div class="wrap">
         <div class="header" id="header">
             <h1 class="title eng">Todo_day</h1>
@@ -21,11 +21,7 @@
                 <li class="item headline fadein" id="{{user._id}}">
                     <input type="checkbox" name="" class="{{user.checked}}" id="checkbox" value="{{user.checked}}" onclick="doneTodo(this)">
                     <span>{{user.name}}</span>
-                    {% if user.date === 0 %}
-                    <span>today</span>
-                    {% else %}
-                    <span>Day-{{user.date}}</span>
-                    {% endif %}
+                    <span class="dday">{{user.date}}</span>
                     <button type="button" onclick="delTodo(this)">x</button>
                 </li>
                 {% endfor %}
@@ -50,6 +46,8 @@
         </div>
      </div>
      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
      <script src="/main.js"></script>
+
 </body>
 </html>
