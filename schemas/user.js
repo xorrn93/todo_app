@@ -7,7 +7,7 @@ const userSchema = new Schema({
     required : true,
   },
   date : {
-    type: Number,
+    type: Date,
     required: true,
   },
   checked: {

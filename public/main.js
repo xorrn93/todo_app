@@ -9,7 +9,8 @@ window.onload = function(){
         done[i].setAttribute('checked',true);
     }
     // done 한 todo list length 를 반영함
-    sucess();         
+    sucess();      
+    ddayCount();
 }
 
 // 경고 메세지
@@ -44,8 +45,6 @@ async function addTodo(){
     try{
         await axios.post('/users',{ name , date });
         // getUser();
-        console.log(name);
-        console.log(date);
         location.reload(true);
     }catch (err){
         console.error(err);
@@ -58,7 +57,6 @@ date = "";
 // delete
 async function delTodo(self){
     const id = self.parentNode.getAttribute('id');
-    console.log(id);
     try {
         if(confirm('삭제하시겠습니까?')){
             await axios.delete(`/users/${id}`);
@@ -75,10 +73,6 @@ async function doneTodo(self) {
     const title = self.nextElementSibling;
     const checked = self.getAttribute('value');
     const id = self.parentNode.getAttribute('id');
-
-    console.log(id);
-    console.log(checked);
-
     if(checked === 'on'){
         title.setAttribute('class','checked');
         try {
@@ -107,7 +101,6 @@ async function doneTodo(self) {
 function lineTruogh(self){
     const title = self.nextElementSibling;
     const checked = self.getAttribute('value')
-    console.log(checked)
     if(checked === "off"){
         title.style.textDecoration = "line-thruogh";
     }else {
@@ -120,7 +113,6 @@ function sucess(){
     const sucess = document.querySelector('.sucess');
     let checkedes = document.getElementsByClassName('off').length;
 
-    console.log(checkedes);
     sucess.innerText = `sucess : ${checkedes}`; 
 }
 
@@ -218,3 +210,28 @@ exitBtn.addEventListener('click', function(){
     toggleBtn.style.display = "block";
     input.value = "";
 })
+
+// ddayCount
+function ddayCount(){
+    const item = document.querySelectorAll(".item");
+    for(i=0;i<item.length;i++){
+        const dday = item[i].querySelector(".dday").innerHTML;
+        
+        let today = new Date();
+        let d_day = new Date(dday);
+        let timeGap = d_day.getTime() - today.getTime();
+        let remainTime = Math.ceil(timeGap/(1000*60*60*24))-1;
+        console.log(remainTime);
+       if(remainTime === 0){
+           item[i].querySelector(".dday").innerHTML = "Today";
+           item[i].querySelector(".dday").style.color = "green";
+       }
+       else if(remainTime < 0){
+        item[i].querySelector(".dday").innerHTML = "Day+"+remainTime*-1;
+        item[i].querySelector(".dday").style.color = "red";
+       }
+       else {
+            item[i].querySelector(".dday").innerHTML = "Day-"+remainTime;
+       }
+    }
+}
