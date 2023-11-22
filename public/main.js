@@ -221,13 +221,12 @@ function ddayCount(){
         let d_day = new Date(dday);
         let timeGap = d_day.getTime() - today.getTime();
         let remainTime = Math.ceil(timeGap/(1000*60*60*24))-1;
-        console.log(remainTime);
        if(remainTime === 0){
            item[i].querySelector(".dday").innerHTML = "Today";
            item[i].querySelector(".dday").style.color = "green";
        }
        else if(remainTime < 0){
-        item[i].querySelector(".dday").innerHTML = "Day+"+remainTime*-1;
+        item[i].querySelector(".dday").innerHTML = "Day+"+ -remainTime;
         item[i].querySelector(".dday").style.color = "red";
        }
        else {
