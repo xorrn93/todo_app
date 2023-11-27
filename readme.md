@@ -12,10 +12,13 @@
 - 기한은 오늘 날짜를 기준으로 이후로만 설정이 가능합니다. **이전은 설정이 불가 합니다.** 
 ## UI
 - ui/ux 는 **figma** 를 통해 다자인 하였고, 레이아웃을 **모바일 우선** ,반응형을 목적으로 구성하였습니다.
+> [figma](https://www.figma.com/file/LEFioaAP3FVGitfT42qkux/todolist?type=design&node-id=6%3A217&mode=design&t=ar07yBCFWKcihiSv-1)
 
 ![image](https://github.com/xorrn93/todo_app/assets/80880540/5ba3d386-8674-45db-97e9-76b58ede377b)
 
-- [figma](https://www.figma.com/file/LEFioaAP3FVGitfT42qkux/todolist?type=design&node-id=6%3A217&mode=design&t=ar07yBCFWKcihiSv-1)
+## offline work
+![20231127_231106](https://github.com/xorrn93/todo_app/assets/80880540/a5eaa5a9-4e02-41e7-842a-5e3764f9fc1a)
+![20231127_231113](https://github.com/xorrn93/todo_app/assets/80880540/2d3c3d12-f287-4733-879d-4e8436a93863)
 
 # 스텍
 > Enviroment
