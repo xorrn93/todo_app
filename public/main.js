@@ -220,7 +220,7 @@ function ddayCount(){
         let today = new Date();
         let d_day = new Date(dday);
         let timeGap = d_day.getTime() - today.getTime();
-        let remainTime = Math.ceil(timeGap/(1000*60*60*24))-1;
+        let remainTime = Math.ceil(timeGap/(1000*60*60*24));
        if(remainTime === 0){
            item[i].querySelector(".dday").innerHTML = "Today";
            item[i].querySelector(".dday").style.color = "green";
@@ -232,5 +232,6 @@ function ddayCount(){
        else {
             item[i].querySelector(".dday").innerHTML = "Day-"+remainTime;
        }
+       console.log(remainTime); // d-day Check
     }
 }
