@@ -26,6 +26,12 @@
 body {
     background-color: var(--bg-color);
     color: var(--font-color);
+    max-height: 100vh;
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 div {
@@ -47,8 +53,12 @@ div {
 .wrap {
     margin: 0 auto;
     position: relative;
-    height: 100vh;
+    height: 100%;
+    overflow-y: auto;
+
 }
+
+
 
 /* header */
 .header {
@@ -69,6 +79,7 @@ div {
     font-weight: normal;
     width: 70%;
     padding-left: 10px;
+    line-height: 1.5;
 }
 .sucess {
     min-width: 80px;
@@ -84,6 +95,13 @@ div {
     display: flex;
     flex-direction: column;
     padding: 0 20px; 
+    max-height: 66vh;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+}
+
+.itemList::-webkit-scrollbar {
+    display: none;
 }
 
 .itemList .item {
