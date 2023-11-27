@@ -13,6 +13,9 @@
  --font-color : #fff;
  --red : #E33A3A;
  --basic-border : 1px solid #fff;
+ --font-style-Inter: 'Inter', sans-serif;
+ --font-style-NotoKR: 'Noto Sans KR', sans-serif;
+ --font-style-Poppin: 'Poppins', sans-serif;
 }
 
 *{ 
@@ -22,11 +25,23 @@
 }
 body {
     background-color: var(--bg-color);
-    color: var(--font-color)
+    color: var(--font-color);
 }
 
 div {
     box-sizing: border-box;
+}
+
+.eng {
+    font-family: var(--font-style-Inter);
+}
+
+.kr {
+    font-family: var(--font-style-NotoKR);
+}
+
+.logo {
+    font-family: var(--font-style-Poppin);
 }
 /* elements */
 .wrap {
@@ -89,6 +104,7 @@ div {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-family: var(--font-style-NotoKR);
 }
 
 .item > span:nth-of-type(2){
@@ -182,11 +198,10 @@ div {
     transition-duration: 0.333s;
 }
 
-/* option CSS */
+/* option  */
 .btn {
     cursor: pointer;
 }
-
 
 .transpar {
     background: none;

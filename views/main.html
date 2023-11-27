@@ -5,39 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>todoApp
     </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Noto+Sans+KR&family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/main.css">
 </head>
 <body >
     <div class="wrap">
         <div class="header" id="header">
-            <h1 class="title eng">Todo_day</h1>
+            <h1 class="title logo">DoDay</h1>
             <span class="sucess">sucess : 0</span>
             <button id="theme" value="Dark" class="btn theme transpar material-symbols-outlined" onclick="changeTheme(this)">partly_cloudy_day</button>
         </div>
-        <p class="intro" onclick="delIntro(this)">Todo_day 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
+        <p class="intro kr" onclick="delIntro(this)">DoDay 는 Todo 기능과 D-day 기능을 <br>합친 간단한 챌린지 앱입니다</p>
         <ul id="itemList" class="itemList">
                 {% for user in users %}
                 <li class="item headline fadein" id="{{user._id}}">
                     <input type="checkbox" name="" class="{{user.checked}}" id="checkbox" value="{{user.checked}}" onclick="doneTodo(this)">
                     <span>{{user.name}}</span>
-                    <span class="dday">{{user.date}}</span>
+                    <span class="dday eng">{{user.date}}</span>
                     <button type="button" onclick="delTodo(this)">x</button>
                 </li>
                 {% endfor %}
             </ul>
-            <button type="button" onclick="deleteAll()" class="deleteAll">All delete</button>
-        <button type="button" id="toggle" class="btn toggle transpar fadein" onclick="toggle(this)"
+            <button type="button" onclick="deleteAll()" class="deleteAll eng">All delete</button>
+        <button type="button" id="toggle" class="btn toggle transpar fadein eng" onclick="toggle(this)"
         >
             + ADD
         </button>
         <div class="input_bar fadein border" id="input_bar" style="display: none;">
             <!-- <form class="input_bar fadein border"> -->
-                <input type="text" id="addValue" class="addValue transpar" placeholder="Enter Anyting..." name="name">
+                <input type="text" id="addValue" class="addValue transpar eng" placeholder="Enter Anyting..." name="name">
                 <div class="tool">
                         <input type="date" id="dateValue" class="date">
                         <button type="submit" id="addList" class="btn plus border" onclick='addTodo()'>+</button>
-                        <button type="button" id="exitBtn" class="btn exit" style="width: 100%;"> 
+                        <button type="button" id="exitBtn" class="btn exit eng" style="width: 100%;"> 
                             ESC
                         </button>
                 </div>
